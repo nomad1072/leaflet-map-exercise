@@ -1,3 +1,10 @@
+To setup the dev environment:
+
+1. cd into the repository and run `yarn`.
+2. After installing the dependencies, running yarn start would start the dev server.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
