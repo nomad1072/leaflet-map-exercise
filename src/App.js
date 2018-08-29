@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
-import {withGoogleMap, GoogleMap, withScriptjs, Marker} from 'react-google-maps';
 import {API_KEY} from './config';
+import { Map, TileLayer, FeatureGroup, Popup, Marker } from 'react-leaflet';
+import { EditControl } from "react-leaflet-draw"
+
+import "../node_modules/leaflet-draw/dist/leaflet.draw.css"
+import "../node_modules/leaflet/dist/leaflet.css"
 
 class App extends Component {
   static defaultProps = {
-    center: { lat: 40.7446790, lng: -73.9485420 },
+    center: [ 40.7446790, -73.9485420 ],
     zoom: 11
   }
   render() {
-    const Map = withScriptjs(withGoogleMap((props) => 
-    <GoogleMap 
-    defaultZoom={this.props.zoom}
-    defaultCenter={this.props.center}>
-    {props.isMarkerShown && <Marker position={this.props.center}/>}
-    </GoogleMap>
-  ));
+  const position = [43.00, -79.00]
+
   const url = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`;
     return (
-      <div className="App">
-        <Map isMarkerShown 
-        googleMapURL={url}
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
+      <Map center={position} zoom={11}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
-      </div>
+        <Marker position={position}>
+          <Popup>
+            A pretty CSS3 popup. <br/> Easily customizable.
+          </Popup>
+        </Marker>
+    </Map>
     );
   }
 }
