@@ -11,9 +11,11 @@
     "react-google-maps": "^9.4.5",
     "react-leaflet": "1.8",
     "react-leaflet-draw": "^0.18.0",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "serve": "^10.0.0"
   },
   "scripts": {
+    "now-start": "serve --single ./build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
