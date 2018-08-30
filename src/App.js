@@ -54,7 +54,7 @@ class App extends Component {
       <React.Fragment>
       <Map center={position} zoom={11}>
         <TileLayer
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
         <Marker position={position}>
           <Popup>
